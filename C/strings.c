@@ -12,7 +12,7 @@ static int global=999999;
 char* subroutine()
 {
     // char* x = "goodbye";       /* This string allocates a pointer on the stack to read-only code segment. */
-    static char x[] = "goodbye";  /* This string allocates the array on the stack and is writable. */
+    static char x[] = "goodbye";  /* This string allocates in a special (writable) array of memory used for static variables */
 
     return x;
 }
@@ -25,7 +25,7 @@ int counter()
     return c++;
 }
 
-/* In this main code segment, srtdub is used to duplicate
+/* In this main code segment, srtdup is used to duplicate
 the string literal to another area in memory that is writable */
 int main(int argc, char *argv[])
 {
